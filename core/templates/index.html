@@ -8,17 +8,17 @@
     <input type="text" placeholder="Название товара" name="name">
     <input type="number" placeholder="Цена товара" name="price">
     <select name="category">
-        <option value="" selected>Выберите</option>
         <option value="Электроника">Электроника</option>
         <option value="Бытовая техника">Бытовая техника</option>
         <option value="Одежда">Одежда</option>
         <option value="Продукты">Продукты</option>
         <option value="Косметика">Косметика</option>
     </select>
-    <button type="submit">Применить</button>
+    <button type="submit">Создать товар</button>
 </form>
-
+r
 <form action="" method="get">
+    <h3>Фильтры</h3>
     <input type="text" placeholder="Поиск по названию" name="search">
     <input type="number" placeholder="Цена от" name="price_start">
     <input type="number" placeholder="Цена до" name="price_end">
@@ -32,10 +32,6 @@
     </select>
     <button type="submit">Применить</button>
 </form>
-
-{% for item in products %}
-<p>{{ item.id }}. {{ item.name }} ({{ item.category }}) - {{ item.price }} сом</p>
-{% endfor %}
 
 {% for item in products %}
 <p>{{ item.id }}. {{ item.name }} ({{ item.category }}) - {{ item.price }} сом</p>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseForbidden
-from .data import new_products
+from core.data import new_products
 
 def main_page(request):
 
