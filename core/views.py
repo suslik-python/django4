@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseForbidden
-from core.data import new_products
+from .data import new_products
 
 def main_page(request):
+    from .data import products
+
+    products += new_products
 
     search_query = request.GET.get('search')
     price_start = request.GET.get('price_start')
@@ -48,7 +51,7 @@ def main_page(request):
 
     return render(request, 'index.html', context)
 
-def create_products(request):
+def create_product(request):
     if request.method == "POST":
         id = request.POST.get('id')
         name = request.POST.get('name')
@@ -59,11 +62,11 @@ def create_products(request):
             'id': int(id),
             'name': name,
             'price': int(price),
-            'category': category 
+            'category': category
         }
 
         new_products.append(new_product)
-
+        
         return redirect('main_page')
     else:
         return HttpResponseForbidden("Данный метод не разрешен")
