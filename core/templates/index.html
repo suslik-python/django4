@@ -1,0 +1,42 @@
+<h1>Список товаров</h1>
+
+<form action="{% url 'create_product' %}" method="post">
+    {% csrf_token %}
+
+    <h3>Создание товара</h3>
+    <input type="number" placeholder="Номер товара" name="id">
+    <input type="text" placeholder="Название товара" name="name">
+    <input type="number" placeholder="Цена товара" name="price">
+    <select name="category">
+        <option value="" selected>Выберите</option>
+        <option value="Электроника">Электроника</option>
+        <option value="Бытовая техника">Бытовая техника</option>
+        <option value="Одежда">Одежда</option>
+        <option value="Продукты">Продукты</option>
+        <option value="Косметика">Косметика</option>
+    </select>
+    <button type="submit">Применить</button>
+</form>
+
+<form action="" method="get">
+    <input type="text" placeholder="Поиск по названию" name="search">
+    <input type="number" placeholder="Цена от" name="price_start">
+    <input type="number" placeholder="Цена до" name="price_end">
+    <select name="category">
+        <option value="" selected>Выберите</option>
+        <option value="Электроника">Электроника</option>
+        <option value="Бытовая техника">Бытовая техника</option>
+        <option value="Одежда">Одежда</option>
+        <option value="Продукты">Продукты</option>
+        <option value="Косметика">Косметика</option>
+    </select>
+    <button type="submit">Применить</button>
+</form>
+
+{% for item in products %}
+<p>{{ item.id }}. {{ item.name }} ({{ item.category }}) - {{ item.price }} сом</p>
+{% endfor %}
+
+{% for item in products %}
+<p>{{ item.id }}. {{ item.name }} ({{ item.category }}) - {{ item.price }} сом</p>
+{% endfor %}
